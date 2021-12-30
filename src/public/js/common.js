@@ -301,7 +301,7 @@ const createChatListHtml = chatData => {
           <span class="heading ellipsis">${chatName}</span>
           <span class="subText ellipsis"><b>${
             senderName ? senderName : ''
-          }</b>: ${newMessage ? newMessage : ''}</span>
+          }</b>: <span>${newMessage ? newMessage : ''}</span></span>
           <span class="text-xs">${timestamps}</span>
         </div>
       </a>
@@ -310,7 +310,7 @@ const createChatListHtml = chatData => {
 const outputChatListItem = (
   chat,
   selector = '.chat-list',
-  position = 'afterbegin'
+  position = 'beforeend'
 ) => {
   const html = createChatListHtml(chat)
   $(selector).insertAdjacentHTML(position, html)
@@ -508,7 +508,7 @@ const createNotificationItemHtml = notification => {
   let text = createTextNotification(notification.notificationType)
   let href = getNotificationUrl(notification)
   return `
-  <a href="${href}" class="list__item-link ${
+  <li class="list__item-link ${
     notification.opened ? '' : 'active'
   }"  data-id="${notification.id}"  >
     <div class="list__image-container">
@@ -516,16 +516,24 @@ const createNotificationItemHtml = notification => {
     </div>
     <div class="list__item-link-details ellipsis">
       <span class="heading ellipsis">${userFrom.fullName}</span>
-      <span class="subText ellipsis">${text}</span>
+      <a href="${href}" >
+        <span class="subText ellipsis">${text}</span>
+      </a>
       <span class="text-xs">${timestamps}</span>
+      <span class="btn btn-delete-notification" 
+        data-bs-toggle="modal"
+        data-bs-target="#deleteNotificationModal"
+      >
+        <i class="remove-pointer-events fas fa-times"></i>
+      </span>
     </div>
-  </a>
+  </li>
   `
 }
 const outputNotificationItem = (
   notification,
-  selector = '.notifcations-list',
-  position = 'afterbegin'
+  selector = '.notifications-list',
+  position = 'beforeend'
 ) => {
   const html = createNotificationItemHtml(notification)
   $(selector).insertAdjacentHTML(position, html)

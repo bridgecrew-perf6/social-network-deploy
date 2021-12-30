@@ -2092,20 +2092,49 @@ button.send-message__button:disabled {
 }
 
 /* ---------------- Notifications -------------------- */
-.notifcations-list .list__item-link-details {
+.notifications-list .list__item-link-details {
   width: 100%;
   flex-direction: row;
   align-items: center;
 }
 
-.notifcations-list .list__item-link-details .heading {
+.notifications-list .list__item-link-details .heading {
   color: #dbdbdb;
   margin-right: 4px;
   font-weight: 600;
 }
-.notifcations-list .list__item-link-details .subText {
+.notifications-list .list__item-link-details .subText {
   flex: 1;
   font-size: 14px;
+}
+
+.notifications-list .list__item-link .text-xs {
+  transition: all 0.4s ease-in-out;
+}
+.notifications-list .list__item-link:hover .text-xs {
+  display: none;
+}
+.notifications-list .list__item-link:hover .btn-delete-notification {
+  display: block;
+}
+.btn-delete-notification {
+  color: #d4dbdb;
+  background: #192734;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 10px;
+  border: 1px solid #363535;
+  display: none;
+  transition: all 0.4s ease-in-out;
+}
+.btn-delete-notification:hover {
+  color: white;
+}
+
+.notifications-list .list__item-link a {
+  flex: 1;
+  font-size: 14px;
+  text-decoration: none;
 }
 
 .list__item-link.active .heading,
@@ -2117,6 +2146,7 @@ button.send-message__button:disabled {
 .chat-list .list__item-link.active .text-xs {
   color: #87c733;
 }
+
 #markNotificationsAsRead {
   pointer-events: none;
   font-size: 16px;

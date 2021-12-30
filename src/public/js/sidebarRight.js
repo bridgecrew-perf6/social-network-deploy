@@ -16,7 +16,7 @@ const submitSearchUser = async (keyword, options = {}) => {
   }
 }
 // Search
-if ($('#searchUserInput')) {
+if ($('#searchUserInput'))
   $('#searchUserInput').onkeyup = e => {
     const input = e.target
     const value = input.value
@@ -44,4 +44,3 @@ if ($('#searchUserInput')) {
       input.value = ''
     }
   }
-}
