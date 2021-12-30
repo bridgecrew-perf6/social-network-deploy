@@ -8,7 +8,7 @@ const limitPosts = 10
 const createUserRow = (user, isAdmin) => {
   let dataUser = {
     id: user.id,
-    email: user.local.email || user.facebook.email || user.google.email || '',
+    email: user.local.email || user.facebook?.email || user.google?.email || '',
     firstName: user.firstName,
     lastName: user.lastName,
     role: user.role,
@@ -27,7 +27,8 @@ const createUserRow = (user, isAdmin) => {
       <td>${
         (user.local.email && 'Local') ||
         (user.facebook.email && 'Facebook') ||
-        (user.google.email && 'Google')
+        (user.google.email && 'Google') ||
+        'Not email'
       }</td>
       <td>${user.local.isActive ? 'Active' : 'Not Activate'}</td>
       `
