@@ -26,8 +26,8 @@ const createUserRow = (user, isAdmin) => {
           ? `
       <td>${
         (user.local.email && 'Local') ||
-        (user.facebook.email && 'Facebook') ||
-        (user.google.email && 'Google') ||
+        (user.facebook?.email && 'Facebook') ||
+        (user.google?.email && 'Google') ||
         'Not email'
       }</td>
       <td>${user.local.isActive ? 'Active' : 'Not Activate'}</td>
