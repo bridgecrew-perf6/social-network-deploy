@@ -13,8 +13,7 @@ const runningApp = () => {
     config.port,
     logger.info(
       // `Server running in ${config.env} mode on port ${config.port}`.cyan
-      `Server running in ${config.env} at http://localhost:${config.port}`.cyan
-        .underline
+      `Server running in ${config.env} at ${config.port}`.cyan.underline
     )
   )
 
